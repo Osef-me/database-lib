@@ -16,4 +16,8 @@ lazy_static! {
 
     /// Regex pour valider les types de rating (etterna, osu, quaver, malody)
     pub static ref RATING_TYPE_REGEX: Regex = Regex::new(r"^(etterna|osu|quaver|malody)$").unwrap();
+
+    pub static ref RANK_REGEX: Regex = Regex::new(r"^(SS|S|A|B|C|D|F|FAILED)$").unwrap();
+
+    pub static ref SCORE_STATUS_REGEX: Regex = Regex::new(r"^(pending|processing|validated|cheated|unsubmitted)$").unwrap();
 }

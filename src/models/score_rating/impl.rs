@@ -1,9 +1,9 @@
 use super::query::{by_id::find_by_id, by_score_id::find_by_score_id, insert::insert};
-use super::types::ScoreRating;
+use super::types::ScoreRatingRow;
 use bigdecimal::BigDecimal;
 use sqlx::PgPool;
 
-impl ScoreRating {
+impl ScoreRatingRow {
     pub async fn insert(
         pool: &PgPool,
         score_id: i32,

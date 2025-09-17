@@ -1,4 +1,4 @@
-use super::super::types::Score;
+use super::super::types::ScoreRow;
 use bigdecimal::BigDecimal;
 use sqlx::{Error as SqlxError, PgPool};
 
@@ -14,9 +14,9 @@ pub async fn insert(
     hash: &str,
     rank: &str,
     status: &str,
-) -> Result<Score, SqlxError> {
+) -> Result<ScoreRow, SqlxError> {
     let score = sqlx::query_as!(
-        Score,
+        ScoreRow,
         r#"
         INSERT INTO score (
             user_id, beatmap_id, score_metadata_id, replay_id, rate, 

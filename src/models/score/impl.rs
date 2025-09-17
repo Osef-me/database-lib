@@ -7,11 +7,11 @@ use super::query::{
     insert::insert,
     update_status::{update_status, update_status_by_hash},
 };
-use super::types::Score;
+use super::types::ScoreRow;
 use bigdecimal::BigDecimal;
 use sqlx::PgPool;
 
-impl Score {
+impl ScoreRow {
     pub async fn insert(
         pool: &PgPool,
         user_id: i64,

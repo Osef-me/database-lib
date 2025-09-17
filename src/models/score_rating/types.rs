@@ -7,7 +7,7 @@ use crate::models::score_rating::validators::*;
 use crate::utils::RATING_TYPE_REGEX;
 
 #[derive(Debug, Clone, FromRow, Validate)]
-pub struct ScoreRating {
+pub struct ScoreRatingRow {
     #[validate(range(min = 1, message = "ID must be positive"))]
     pub id: i32,
 

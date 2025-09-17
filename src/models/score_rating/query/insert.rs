@@ -1,4 +1,4 @@
-use super::super::types::ScoreRating;
+use super::super::types::ScoreRatingRow;
 use bigdecimal::BigDecimal;
 use sqlx::{Error as SqlxError, PgPool};
 
@@ -7,9 +7,9 @@ pub async fn insert(
     score_id: i32,
     rating: BigDecimal,
     rating_type: &str,
-) -> Result<ScoreRating, SqlxError> {
+) -> Result<ScoreRatingRow, SqlxError> {
     let score_rating = sqlx::query_as!(
-        ScoreRating,
+        ScoreRatingRow,
         r#"
         INSERT INTO score_rating (score_id, rating, rating_type, created_at)
         VALUES ($1, $2, $3, NOW())
