@@ -3,17 +3,17 @@ use chrono::NaiveDateTime;
 use validator::Validate;
 
 use super::validators::{
-    validate_ar, validate_beatmapset_id, validate_bpm, validate_cs, validate_difficulty_rating,
-    validate_hp, validate_mode, validate_od, validate_osu_id, validate_status,
+    validate_ar, validate_bpm, validate_cs, validate_difficulty_rating, validate_hp, validate_mode,
+    validate_od, validate_status,
 };
 
 #[derive(Clone, Debug, Validate)]
 pub struct BeatmapRow {
     #[validate(range(min = 1))]
     pub id: i32,
-    #[validate(custom(function = "validate_osu_id"))]
+    #[validate(range(min = 0, message = "ID must be positive"))]
     pub osu_id: Option<i32>,
-    #[validate(custom(function = "validate_beatmapset_id"))]
+    #[validate(range(min = 0, message = "ID must be positive"))]
     pub beatmapset_id: Option<i32>,
     #[validate(length(min = 1, max = 100))]
     pub difficulty: String,

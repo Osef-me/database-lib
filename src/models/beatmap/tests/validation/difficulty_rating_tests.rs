@@ -1,5 +1,5 @@
-use bigdecimal::BigDecimal;
 use crate::models::beatmap::validators::validate_difficulty_rating;
+use bigdecimal::BigDecimal;
 
 #[cfg(test)]
 mod tests {
@@ -17,7 +17,7 @@ mod tests {
     fn test_validate_difficulty_rating_invalid_negative() {
         let result = validate_difficulty_rating(&BigDecimal::from(-1));
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "difficulty_rating_out_of_range");
     }

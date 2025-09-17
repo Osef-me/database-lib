@@ -1,5 +1,5 @@
-use bigdecimal::BigDecimal;
 use crate::models::beatmap::validators::validate_ar;
+use bigdecimal::BigDecimal;
 
 #[cfg(test)]
 mod tests {
@@ -18,7 +18,7 @@ mod tests {
     fn test_validate_ar_invalid_negative() {
         let result = validate_ar(&BigDecimal::from(-1));
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "ar_out_of_range");
     }

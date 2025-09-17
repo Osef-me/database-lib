@@ -1,21 +1,6 @@
 use bigdecimal::BigDecimal;
 use validator::ValidationError;
 
-pub(super) fn validate_osu_id(osu_id: i32) -> Result<(), ValidationError> {
-    if osu_id < 0 {
-        return Err(ValidationError::new("osu_id_must_be_positive"));
-    }
-
-    Ok(())
-}
-
-pub(super) fn validate_beatmapset_id(beatmapset_id: i32) -> Result<(), ValidationError> {
-    if beatmapset_id < 0 {
-        return Err(ValidationError::new("beatmapset_id_must_be_positive"));
-    }
-    Ok(())
-}
-
 pub(super) fn validate_difficulty_rating(rating: &BigDecimal) -> Result<(), ValidationError> {
     if *rating < BigDecimal::from(0) || *rating > BigDecimal::from(40) {
         return Err(ValidationError::new("difficulty_rating_out_of_range"));

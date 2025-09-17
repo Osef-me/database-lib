@@ -2,12 +2,12 @@ use crate::models::failed_query::FailedQuery;
 use validator::Validate;
 
 /// Tests for hash validation in the `FailedQuery` model.
-/// 
+///
 /// This module contains comprehensive tests that verify the hash field validation
 /// rules, including format validation (alphanumeric only) and length constraints.
-/// 
+///
 /// # Test Coverage
-/// 
+///
 /// - **Valid cases**: Alphanumeric hashes of various lengths
 /// - **Invalid format**: Hashes with special characters, spaces, etc.
 /// - **Invalid length**: Empty hashes and hashes exceeding 255 characters

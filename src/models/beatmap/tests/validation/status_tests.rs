@@ -19,7 +19,7 @@ mod tests {
     fn test_validate_status_invalid_empty() {
         let result = validate_status("");
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "invalid_status");
     }

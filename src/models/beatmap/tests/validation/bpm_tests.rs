@@ -1,5 +1,5 @@
-use bigdecimal::BigDecimal;
 use crate::models::beatmap::validators::validate_bpm;
+use bigdecimal::BigDecimal;
 
 #[cfg(test)]
 mod tests {
@@ -17,7 +17,7 @@ mod tests {
     fn test_validate_bpm_invalid_zero() {
         let result = validate_bpm(&BigDecimal::from(0));
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "bpm_out_of_range");
     }

@@ -2,13 +2,13 @@ use crate::models::failed_query::FailedQuery;
 use chrono::DateTime;
 
 /// Tests for the `FailedQuery` model structure and basic functionality.
-/// 
+///
 /// This module contains tests that verify the basic behavior and functionality
 /// of the `FailedQuery` struct, including model creation, field access, and
 /// edge case handling.
-/// 
+///
 /// # Test Coverage
-/// 
+///
 /// - **Model creation**: Valid and invalid model instantiation
 /// - **Field access**: Proper field value retrieval and assignment
 /// - **Edge cases**: Minimum/maximum values, optional fields

@@ -16,7 +16,7 @@ mod tests {
     fn test_validate_mode_invalid_negative() {
         let result = validate_mode(-1);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "invalid_mode");
     }
