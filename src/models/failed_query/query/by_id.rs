@@ -1,9 +1,9 @@
-use crate::models::failed_query::types::FailedQuery;
+use crate::models::failed_query::types::FailedQueryRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<FailedQuery>, SqlxError> {
-    let row = sqlx::query_as!(
-        FailedQuery,
+pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<FailedQueryRow>, SqlxError> {
+    sqlx::query_as!(
+        FailedQueryRow,
         r#"
         SELECT id, hash, created_at
         FROM failed_query
@@ -12,7 +12,5 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<FailedQuery>, S
         id
     )
     .fetch_optional(pool)
-    .await?;
-
-    Ok(row)
+    .await
 }

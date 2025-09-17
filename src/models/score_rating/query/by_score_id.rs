@@ -1,7 +1,10 @@
 use super::super::types::ScoreRatingRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-pub async fn find_by_score_id(pool: &PgPool, score_id: i32) -> Result<Vec<ScoreRatingRow>, SqlxError> {
+pub async fn find_by_score_id(
+    pool: &PgPool,
+    score_id: i32,
+) -> Result<Vec<ScoreRatingRow>, SqlxError> {
     let score_ratings = sqlx::query_as!(
         ScoreRatingRow,
         r#"

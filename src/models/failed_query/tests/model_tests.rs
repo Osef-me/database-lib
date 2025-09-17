@@ -1,18 +1,5 @@
-use crate::models::failed_query::FailedQuery;
+use crate::models::failed_query::FailedQueryRow;
 use chrono::DateTime;
-
-/// Tests for the `FailedQuery` model structure and basic functionality.
-///
-/// This module contains tests that verify the basic behavior and functionality
-/// of the `FailedQuery` struct, including model creation, field access, and
-/// edge case handling.
-///
-/// # Test Coverage
-///
-/// - **Model creation**: Valid and invalid model instantiation
-/// - **Field access**: Proper field value retrieval and assignment
-/// - **Edge cases**: Minimum/maximum values, optional fields
-/// - **Timestamp handling**: Proper handling of `created_at` field
 
 #[cfg(test)]
 mod tests {
@@ -20,7 +7,7 @@ mod tests {
 
     #[test]
     fn test_failed_query_valid_model() {
-        let failed_query = FailedQuery {
+        let failed_query = FailedQueryRow {
             id: 1,
             hash: "abc123def456".to_string(),
             created_at: Some(DateTime::from_timestamp(1640995200, 0).unwrap().naive_utc()),
@@ -34,7 +21,7 @@ mod tests {
 
     #[test]
     fn test_failed_query_without_created_at() {
-        let failed_query = FailedQuery {
+        let failed_query = FailedQueryRow {
             id: 1,
             hash: "abc123def456".to_string(),
             created_at: None,
@@ -48,7 +35,7 @@ mod tests {
     #[test]
     fn test_failed_query_hash_edge_cases() {
         // Test avec hash de longueur minimale
-        let failed_query_min = FailedQuery {
+        let failed_query_min = FailedQueryRow {
             id: 1,
             hash: "a".to_string(),
             created_at: None,
@@ -57,7 +44,7 @@ mod tests {
 
         // Test avec hash de longueur maximale (255 caractères)
         let long_hash = "a".repeat(255);
-        let failed_query_max = FailedQuery {
+        let failed_query_max = FailedQueryRow {
             id: 1,
             hash: long_hash.clone(),
             created_at: None,
@@ -68,7 +55,7 @@ mod tests {
     #[test]
     fn test_failed_query_id_edge_cases() {
         // Test avec ID minimal
-        let failed_query_min = FailedQuery {
+        let failed_query_min = FailedQueryRow {
             id: 1,
             hash: "abc123".to_string(),
             created_at: None,
@@ -76,7 +63,7 @@ mod tests {
         assert_eq!(failed_query_min.id, 1);
 
         // Test avec ID plus grand
-        let failed_query_large = FailedQuery {
+        let failed_query_large = FailedQueryRow {
             id: 999999,
             hash: "abc123".to_string(),
             created_at: None,

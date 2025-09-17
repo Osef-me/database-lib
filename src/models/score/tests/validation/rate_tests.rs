@@ -27,7 +27,7 @@ mod tests {
         let rate = BigDecimal::from_f64(-1.0).unwrap();
         let result = validate_rate(&rate);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "rate_out_of_range");
     }
@@ -37,7 +37,7 @@ mod tests {
         let rate = BigDecimal::from_f64(11.0).unwrap();
         let result = validate_rate(&rate);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "rate_out_of_range");
     }
@@ -47,7 +47,7 @@ mod tests {
         let rate = BigDecimal::from_f64(100.0).unwrap();
         let result = validate_rate(&rate);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "rate_out_of_range");
     }

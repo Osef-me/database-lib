@@ -5,7 +5,7 @@ use validator::Validate;
 use crate::utils::HASH_REGEX;
 
 #[derive(Debug, Clone, FromRow, Validate)]
-pub struct Replay {
+pub struct ReplayRow {
     #[validate(range(min = 1, message = "ID must be positive"))]
     pub id: i32,
 

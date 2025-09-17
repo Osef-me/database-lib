@@ -1,7 +1,7 @@
 use bigdecimal::BigDecimal;
 use chrono::NaiveDateTime;
-use validator::Validate;
 use sqlx::FromRow;
+use validator::Validate;
 
 use crate::models::score_rating::validators::*;
 use crate::utils::RATING_TYPE_REGEX;
@@ -17,7 +17,11 @@ pub struct ScoreRatingRow {
     #[validate(custom(function = "validate_rating"))]
     pub rating: BigDecimal,
 
-    #[validate(length(min = 1, max = 30, message = "Rating type must be between 1 and 30 characters"))]
+    #[validate(length(
+        min = 1,
+        max = 30,
+        message = "Rating type must be between 1 and 30 characters"
+    ))]
     #[validate(regex(path = "*RATING_TYPE_REGEX", message = "Invalid rating type"))]
     pub rating_type: String,
     pub created_at: Option<NaiveDateTime>,

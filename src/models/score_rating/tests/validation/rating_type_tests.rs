@@ -4,7 +4,7 @@ use validator::Validate;
 #[cfg(test)]
 mod tests {
     use super::*;
-    use bigdecimal::{BigDecimal};
+    use bigdecimal::BigDecimal;
 
     #[test]
     fn test_rating_type_validation_valid_etterna() {

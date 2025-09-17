@@ -1,7 +1,10 @@
 use super::super::types::ScoreRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-pub async fn find_by_beatmap_id(pool: &PgPool, beatmap_id: i32) -> Result<Vec<ScoreRow>, SqlxError> {
+pub async fn find_by_beatmap_id(
+    pool: &PgPool,
+    beatmap_id: i32,
+) -> Result<Vec<ScoreRow>, SqlxError> {
     let scores = sqlx::query_as!(
         ScoreRow,
         r#"

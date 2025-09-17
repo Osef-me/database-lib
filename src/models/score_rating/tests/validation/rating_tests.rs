@@ -1,5 +1,5 @@
-use bigdecimal::BigDecimal;
 use crate::models::score_rating::validators::validate_rating;
+use bigdecimal::BigDecimal;
 
 #[cfg(test)]
 mod tests {
@@ -28,7 +28,7 @@ mod tests {
         let rating = BigDecimal::from(-1);
         let result = validate_rating(&rating);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "rating_out_of_range");
     }
@@ -38,7 +38,7 @@ mod tests {
         let rating = BigDecimal::from(101);
         let result = validate_rating(&rating);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "rating_out_of_range");
     }
@@ -48,7 +48,7 @@ mod tests {
         let rating = BigDecimal::from(150);
         let result = validate_rating(&rating);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "rating_out_of_range");
     }

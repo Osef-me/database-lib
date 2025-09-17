@@ -5,4 +5,4 @@ pub mod types;
 #[cfg(test)]
 mod tests;
 
-pub use types::FailedQuery;
+pub use types::FailedQueryRow;

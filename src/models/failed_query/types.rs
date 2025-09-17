@@ -3,7 +3,7 @@ use chrono::NaiveDateTime;
 use validator::Validate;
 
 #[derive(Debug, Clone, sqlx::FromRow, Validate)]
-pub struct FailedQuery {
+pub struct FailedQueryRow {
     /// Unique identifier for the failed query record.
     /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "ID must be positive"))]

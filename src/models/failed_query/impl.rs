@@ -1,8 +1,8 @@
 use super::query::{delete_by_hash, exists_by_hash, find_by_id, insert};
-use super::FailedQuery;
+use super::FailedQueryRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-impl FailedQuery {
+impl FailedQueryRow {
     pub async fn insert(pool: &PgPool, hash: &str) -> Result<i32, SqlxError> {
         let result = insert(pool, hash).await?;
         Ok(result)
@@ -13,7 +13,7 @@ impl FailedQuery {
         Ok(result)
     }
 
-    pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<FailedQuery, SqlxError> {
+    pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Self, SqlxError> {
         let result = find_by_id(pool, id).await?;
         Ok(result.ok_or(SqlxError::RowNotFound)?)
     }
