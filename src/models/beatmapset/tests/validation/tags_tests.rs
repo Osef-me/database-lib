@@ -12,11 +12,7 @@ mod tests {
 
     #[test]
     fn test_validate_tags_valid_multiple_tags() {
-        let tags = vec![
-            "anime".to_string(),
-            "op".to_string(),
-            "tv".to_string(),
-        ];
+        let tags = vec!["anime".to_string(), "op".to_string(), "tv".to_string()];
         assert!(validate_tags(&tags).is_ok());
     }
 

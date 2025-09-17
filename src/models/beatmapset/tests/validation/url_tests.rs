@@ -27,7 +27,7 @@ mod tests {
         let url = "";
         let result = validate_url(url);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "url_cannot_be_empty");
     }
@@ -37,7 +37,7 @@ mod tests {
         let long_url = format!("https://example.com/{}", "a".repeat(500));
         let result = validate_url(&long_url);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "url_too_long");
     }
@@ -47,7 +47,7 @@ mod tests {
         let url = "example.com";
         let result = validate_url(url);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "url_must_start_with_http");
     }
@@ -57,7 +57,7 @@ mod tests {
         let url = "ftp://example.com";
         let result = validate_url(url);
         assert!(result.is_err());
-        
+
         let error = result.unwrap_err();
         assert_eq!(error.code, "url_must_start_with_http");
     }
