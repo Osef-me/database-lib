@@ -1,0 +1,15 @@
+name: Database Package CI
+
+on:
+  push:
+    branches: ["master", "main", "develop"]
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches: ["master", "main", "develop"]
+    paths-ignore:
+      - '*.md'
+      - 'README.md'
+
+jobs:
+  check:
+    uses: ./.github/workflows/check.yml
