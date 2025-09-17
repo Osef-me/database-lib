@@ -1,0 +1,38 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        WITH stats AS (\n            SELECT \n                (SELECT COALESCE(reltuples::bigint, 0) FROM pg_class WHERE relname = 'beatmap') as beatmap_count,\n                (SELECT COALESCE(reltuples::bigint, 0) FROM pg_class WHERE relname = 'beatmapset') as beatmapset_count\n        ),\n        pattern_stats AS (\n            SELECT main_pattern, COUNT(*) as count\n            FROM msd\n            WHERE rate = 1.0 AND main_pattern IS NOT NULL\n            GROUP BY main_pattern\n            ORDER BY count DESC\n        )\n        SELECT \n            s.beatmap_count,\n            s.beatmapset_count,\n            p.main_pattern,\n            p.count as pattern_count\n        FROM stats s\n        CROSS JOIN pattern_stats p\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "beatmap_count",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "beatmapset_count",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "main_pattern",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "pattern_count",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      null,
+      null,
+      true,
+      null
+    ]
+  },
+  "hash": "fa67e36e29049905a2f75f80b641d220b940336e9aee8d4a505f5879a0868cee"
+}

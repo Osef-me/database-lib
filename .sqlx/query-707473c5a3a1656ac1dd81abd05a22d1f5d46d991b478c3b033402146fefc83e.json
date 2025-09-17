@@ -1,0 +1,118 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, skin, pause_count, started_at, ended_at, time_paused, score, accuracy, \n               max_combo, perfect, count_300, count_100, count_50, \n               count_miss, count_katu, count_geki, created_at\n        FROM score_metadata\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "skin",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "pause_count",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 3,
+        "name": "started_at",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 4,
+        "name": "ended_at",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 5,
+        "name": "time_paused",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 6,
+        "name": "score",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 7,
+        "name": "accuracy",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 8,
+        "name": "max_combo",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 9,
+        "name": "perfect",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 10,
+        "name": "count_300",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 11,
+        "name": "count_100",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 12,
+        "name": "count_50",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 13,
+        "name": "count_miss",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 14,
+        "name": "count_katu",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 15,
+        "name": "count_geki",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 16,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "707473c5a3a1656ac1dd81abd05a22d1f5d46d991b478c3b033402146fefc83e"
+}

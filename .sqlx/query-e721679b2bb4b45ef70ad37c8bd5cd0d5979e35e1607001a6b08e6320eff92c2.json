@@ -1,0 +1,101 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT * FROM msd WHERE beatmap_id = $1 AND rate = $2",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "beatmap_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "overall",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 3,
+        "name": "stream",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 4,
+        "name": "jumpstream",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 5,
+        "name": "handstream",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 6,
+        "name": "stamina",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 7,
+        "name": "jackspeed",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 8,
+        "name": "chordjack",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 9,
+        "name": "technical",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 10,
+        "name": "rate",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 11,
+        "name": "main_pattern",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 12,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 13,
+        "name": "updated_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4",
+        "Numeric"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "e721679b2bb4b45ef70ad37c8bd5cd0d5979e35e1607001a6b08e6320eff92c2"
+}

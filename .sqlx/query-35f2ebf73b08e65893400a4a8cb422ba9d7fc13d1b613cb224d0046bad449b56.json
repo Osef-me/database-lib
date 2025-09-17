@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, score_id, rating, rating_type, created_at\n        FROM score_rating \n        WHERE score_id = $1\n        ORDER BY created_at DESC\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "score_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "rating",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 3,
+        "name": "rating_type",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "35f2ebf73b08e65893400a4a8cb422ba9d7fc13d1b613cb224d0046bad449b56"
+}
