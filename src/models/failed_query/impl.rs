@@ -13,7 +13,6 @@ impl FailedQueryRow {
 
     pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Self, SqlxError> {
         find_by_id(pool, id).await?.ok_or(SqlxError::RowNotFound)
-
     }
 
     pub async fn delete_by_hash(pool: &PgPool, hash: &str) -> Result<u64, SqlxError> {
