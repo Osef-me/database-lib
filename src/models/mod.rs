@@ -2,3 +2,8 @@ pub mod beatmap;
 pub mod beatmapset;
 pub mod failed_query;
 pub mod msd;
+pub mod pending_beatmap;
+pub mod replay;
+pub mod score;
+pub mod score_metadata;
+pub mod score_rating;

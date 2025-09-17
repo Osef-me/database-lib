@@ -13,8 +13,8 @@ mod tests {
     #[test]
     fn test_validate_rate_value_valid_min() {
         let value = BigDecimal::from_f64(0.5).unwrap();
-            assert!(validate_rate_value(&value).is_ok());
-        }
+        assert!(validate_rate_value(&value).is_ok());
+    }
 
     #[test]
     fn test_validate_rate_value_valid_normal() {

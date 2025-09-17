@@ -1,4 +1,4 @@
-use bigdecimal::{BigDecimal};
+use bigdecimal::BigDecimal;
 use bigdecimal::FromPrimitive;
 use validator::ValidationError;
 
@@ -26,11 +26,11 @@ pub fn validate_main_pattern(pattern: &str) -> Result<(), ValidationError> {
     if pattern.len() > 1000 {
         return Err(ValidationError::new("main_pattern_too_long"));
     }
-    
+
     // Validate that it's valid JSON
     if serde_json::from_str::<serde_json::Value>(pattern).is_err() {
         return Err(ValidationError::new("main_pattern_invalid_json"));
     }
-    
+
     Ok(())
 }

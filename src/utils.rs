@@ -13,4 +13,7 @@ lazy_static! {
 
     /// Regex pour valider les UUIDs
     pub static ref UUID_REGEX: Regex = Regex::new(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$").unwrap();
+
+    /// Regex pour valider les types de rating (etterna, osu, quaver, malody)
+    pub static ref RATING_TYPE_REGEX: Regex = Regex::new(r"^(etterna|osu|quaver|malody)$").unwrap();
 }

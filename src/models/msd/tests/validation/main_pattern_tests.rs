@@ -12,7 +12,8 @@ mod tests {
 
     #[test]
     fn test_validate_main_pattern_valid_complex_json() {
-        let pattern = r#"{"patterns": ["stream", "jumpstream", "handstream"], "difficulty": 5.5}"#.to_string();
+        let pattern = r#"{"patterns": ["stream", "jumpstream", "handstream"], "difficulty": 5.5}"#
+            .to_string();
         assert!(validate_main_pattern(&pattern).is_ok());
     }
 
@@ -24,7 +25,9 @@ mod tests {
 
     #[test]
     fn test_validate_main_pattern_valid_nested_json() {
-        let pattern = r#"{"stream": {"difficulty": 6.0, "notes": 100}, "jumpstream": {"difficulty": 4.5}}"#.to_string();
+        let pattern =
+            r#"{"stream": {"difficulty": 6.0, "notes": 100}, "jumpstream": {"difficulty": 4.5}}"#
+                .to_string();
         assert!(validate_main_pattern(&pattern).is_ok());
     }
 

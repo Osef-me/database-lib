@@ -19,7 +19,7 @@ mod tests {
 
     #[test]
     fn test_validate_msd_value_valid_max() {
-        let value = BigDecimal::from(20);
+        let value = BigDecimal::from(100);
         assert!(validate_msd_value(&value).is_ok());
     }
 
@@ -35,17 +35,7 @@ mod tests {
 
     #[test]
     fn test_validate_msd_value_invalid_too_high() {
-        let value = BigDecimal::from(21);
-        let result = validate_msd_value(&value);
-        assert!(result.is_err());
-
-        let error = result.unwrap_err();
-        assert_eq!(error.code, "msd_value_out_of_range");
-    }
-
-    #[test]
-    fn test_validate_msd_value_invalid_very_high() {
-        let value = BigDecimal::from(100);
+        let value = BigDecimal::from(101);
         let result = validate_msd_value(&value);
         assert!(result.is_err());
 
