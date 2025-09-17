@@ -2,7 +2,7 @@ use crate::models::score_metadata::types::ScoreMetadataRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ScoreMetadataRow>, SqlxError> {
-    Ok(sqlx::query_as!(
+    sqlx::query_as!(
         ScoreMetadataRow,
         r#"
         SELECT id, skin, pause_count, started_at, ended_at, time_paused, score, accuracy, 
@@ -14,5 +14,5 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ScoreMetadataRo
         id
     )
     .fetch_optional(pool)
-    .await?)
+    .await
 }

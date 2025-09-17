@@ -8,37 +8,11 @@ use super::query::{
     update_status::{update_status, update_status_by_hash},
 };
 use super::types::ScoreRow;
-use bigdecimal::BigDecimal;
 use sqlx::PgPool;
 
 impl ScoreRow {
-    pub async fn insert(
-        pool: &PgPool,
-        user_id: i64,
-        beatmap_id: i32,
-        score_metadata_id: i32,
-        replay_id: Option<i32>,
-        rate: BigDecimal,
-        hwid: Option<&str>,
-        mods: i64,
-        hash: &str,
-        rank: &str,
-        status: &str,
-    ) -> Result<Self, sqlx::Error> {
-        insert(
-            pool,
-            user_id,
-            beatmap_id,
-            score_metadata_id,
-            replay_id,
-            rate,
-            hwid,
-            mods,
-            hash,
-            rank,
-            status,
-        )
-        .await
+    pub async fn insert(self, pool: &PgPool) -> Result<Self, sqlx::Error> {
+        insert(pool, self).await
     }
 
     pub async fn exists_by_hash(pool: &PgPool, hash: &str) -> Result<bool, sqlx::Error> {

@@ -1,23 +1,7 @@
+use crate::models::beatmapset::types::BeatmapsetRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-pub async fn insert(
-    pool: &PgPool,
-    osu_id: Option<i32>,
-    artist: String,
-    artist_unicode: Option<String>,
-    title: String,
-    title_unicode: Option<String>,
-    creator: String,
-    source: Option<String>,
-    tags: Option<Vec<String>>,
-    has_video: bool,
-    has_storyboard: bool,
-    is_explicit: bool,
-    is_featured: bool,
-    cover_url: Option<String>,
-    preview_url: Option<String>,
-    osu_file_url: Option<String>,
-) -> Result<i32, SqlxError> {
+pub async fn insert(pool: &PgPool, beatmapset: BeatmapsetRow) -> Result<i32, SqlxError> {
     Ok(sqlx::query!(
         r#"
             INSERT INTO beatmapset (
@@ -43,21 +27,21 @@ pub async fn insert(
                 updated_at = now()
             RETURNING id
             "#,
-        osu_id,
-        artist,
-        artist_unicode.as_deref(),
-        title,
-        title_unicode.as_deref(),
-        creator,
-        source.as_deref(),
-        tags.as_deref(),
-        has_video,
-        has_storyboard,
-        is_explicit,
-        is_featured,
-        cover_url.as_deref(),
-        preview_url.as_deref(),
-        osu_file_url.as_deref()
+        beatmapset.osu_id,
+        beatmapset.artist,
+        beatmapset.artist_unicode.as_deref(),
+        beatmapset.title,
+        beatmapset.title_unicode.as_deref(),
+        beatmapset.creator,
+        beatmapset.source.as_deref(),
+        beatmapset.tags.as_deref(),
+        beatmapset.has_video,
+        beatmapset.has_storyboard,
+        beatmapset.is_explicit,
+        beatmapset.is_featured,
+        beatmapset.cover_url.as_deref(),
+        beatmapset.preview_url.as_deref(),
+        beatmapset.osu_file_url.as_deref()
     )
     .fetch_one(pool)
     .await?
