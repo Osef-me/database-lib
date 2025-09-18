@@ -1,4 +1,4 @@
-use crate::models::beatmap::rates::types::RatesRow;
+use crate::models::beatmaps::rates::types::RatesRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<RatesRow>, SqlxError> {

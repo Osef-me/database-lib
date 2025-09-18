@@ -1,5 +1,5 @@
 use crate::define_insert_returning_id;
-use crate::models::beatmap::rates::types::RatesRow;
+use crate::models::beatmaps::rates::types::RatesRow;
 // no extra imports needed
 
 define_insert_returning_id!(

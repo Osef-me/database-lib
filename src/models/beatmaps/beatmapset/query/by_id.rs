@@ -1,4 +1,4 @@
-use crate::models::beatmap::beatmapset::types::BeatmapsetRow;
+use crate::models::beatmaps::beatmapset::types::BeatmapsetRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<BeatmapsetRow>, SqlxError> {
