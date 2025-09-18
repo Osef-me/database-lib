@@ -1,7 +1,10 @@
 use crate::models::rating::beatmap_mania_rating::types::BeatmapManiaRatingRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<BeatmapManiaRatingRow>, SqlxError> {
+pub async fn find_by_id(
+    pool: &PgPool,
+    id: i32,
+) -> Result<Option<BeatmapManiaRatingRow>, SqlxError> {
     sqlx::query_as!(
         BeatmapManiaRatingRow,
         r#"
@@ -14,4 +17,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<BeatmapManiaRat
     .fetch_optional(pool)
     .await
 }
-

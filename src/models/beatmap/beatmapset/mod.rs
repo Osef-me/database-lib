@@ -5,5 +5,5 @@ pub mod types;
 #[cfg(test)]
 mod tests;
 
+pub use query::*;
 pub use types::BeatmapsetRow;
-

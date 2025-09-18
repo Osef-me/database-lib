@@ -5,7 +5,7 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ScoreMetadataRo
     sqlx::query_as!(
         ScoreMetadataRow,
         r#"
-        SELECT id, total_score, accuracy, max_combo, count_300, count_100, count_50, count_miss, count_geki, count_katu, created_at
+        SELECT id, skin, pause_count, started_at, ended_at, time_paused, score, accuracy, max_combo, perfect, count_300, count_100, count_50, count_miss, count_geki, count_katu, created_at
         FROM score_metadata
         WHERE id = $1
         "#,
@@ -14,4 +14,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ScoreMetadataRo
     .fetch_optional(pool)
     .await
 }
-

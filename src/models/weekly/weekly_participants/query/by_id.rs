@@ -1,11 +1,14 @@
 use crate::models::weekly::weekly_participants::types::WeeklyParticipantsRow;
 use sqlx::{Error as SqlxError, PgPool};
 
-pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<WeeklyParticipantsRow>, SqlxError> {
+pub async fn find_by_id(
+    pool: &PgPool,
+    id: i32,
+) -> Result<Option<WeeklyParticipantsRow>, SqlxError> {
     sqlx::query_as!(
         WeeklyParticipantsRow,
         r#"
-        SELECT id, weekly_id, user_id, created_at
+        SELECT id, user_id, weekly_id, op, final_rank, created_at
         FROM weekly_participants
         WHERE id = $1
         "#,
@@ -14,4 +17,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<WeeklyParticipa
     .fetch_optional(pool)
     .await
 }
-

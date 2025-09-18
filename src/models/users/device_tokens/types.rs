@@ -10,7 +10,7 @@ pub struct DeviceTokensRow {
     /// Discord ID of the user who owns this device token.
     /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "Discord ID must be positive"))]
-    pub discord_id: i64,
+    pub discord_id: Option<i64>,
 
     /// Optional device name identifier.
     pub device_name: Option<String>,
@@ -21,4 +21,3 @@ pub struct DeviceTokensRow {
     /// Timestamp when the device token was created.
     pub created_at: Option<NaiveDateTime>,
 }
-

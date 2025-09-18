@@ -11,7 +11,7 @@ pub struct BeatmapsetRow {
     /// Osu beatmapset ID from the official osu! API.
     /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "Osu ID must be positive"))]
-    pub osu_id: i32,
+    pub osu_id: Option<i32>,
 
     /// Artist name of the beatmapset.
     /// Must be between 1 and 255 characters.
@@ -86,4 +86,3 @@ pub struct BeatmapsetRow {
     /// Timestamp when the beatmapset was last updated.
     pub updated_at: Option<NaiveDateTime>,
 }
-

@@ -14,4 +14,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<FailedQueryRow>
     .fetch_optional(pool)
     .await
 }
-

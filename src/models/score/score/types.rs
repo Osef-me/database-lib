@@ -38,12 +38,12 @@ pub struct ScoreRow {
 
     /// Rank achieved in the play.
     /// Must be one of: 'XH', 'X', 'SH', 'SS', 'S', 'A', 'B', 'C', 'D', 'E', 'F', 'G'.
-    #[validate(custom = "validate_rank")]
+    #[validate(custom(function = "validate_rank"))]
     pub rank: String,
 
     /// Status of the score.
     /// Must be one of: 'pending', 'processing', 'validated', 'cheated', 'unsubmitted'.
-    #[validate(custom = "validate_status")]
+    #[validate(custom(function = "validate_status"))]
     pub status: String,
 
     /// Timestamp when the score was created.
@@ -63,4 +63,3 @@ fn validate_status(status: &str) -> Result<(), validator::ValidationError> {
         _ => Err(validator::ValidationError::new("invalid_status")),
     }
 }
-

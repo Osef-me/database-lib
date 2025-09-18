@@ -2,7 +2,10 @@ use crate::models::users::new_users::types::NewUsersRow;
 use sqlx::{Error as SqlxError, PgPool};
 use uuid::Uuid;
 
-pub async fn find_by_discord_id(pool: &PgPool, discord_id: i64) -> Result<Option<NewUsersRow>, SqlxError> {
+pub async fn find_by_discord_id(
+    pool: &PgPool,
+    discord_id: i64,
+) -> Result<Option<NewUsersRow>, SqlxError> {
     sqlx::query_as!(
         NewUsersRow,
         r#"
@@ -29,4 +32,3 @@ pub async fn find_by_token(pool: &PgPool, token: Uuid) -> Result<Option<NewUsers
     .fetch_optional(pool)
     .await
 }
-

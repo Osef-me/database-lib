@@ -1,3 +1,4 @@
+use bigdecimal::BigDecimal;
 use chrono::NaiveDateTime;
 use validator::Validate;
 
@@ -14,40 +15,32 @@ pub struct ScoreManiaRatingRow {
 
     /// Stream difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Stream rating must be non-negative"))]
-    pub stream: Option<f64>,
+    pub stream: Option<BigDecimal>,
 
     /// Jumpstream difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Jumpstream rating must be non-negative"))]
-    pub jumpstream: Option<f64>,
+    pub jumpstream: Option<BigDecimal>,
 
     /// Handstream difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Handstream rating must be non-negative"))]
-    pub handstream: Option<f64>,
+    pub handstream: Option<BigDecimal>,
 
     /// Stamina difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Stamina rating must be non-negative"))]
-    pub stamina: Option<f64>,
+    pub stamina: Option<BigDecimal>,
 
     /// Jackspeed difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Jackspeed rating must be non-negative"))]
-    pub jackspeed: Option<f64>,
+    pub jackspeed: Option<BigDecimal>,
 
     /// Chordjack difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Chordjack rating must be non-negative"))]
-    pub chordjack: Option<f64>,
+    pub chordjack: Option<BigDecimal>,
 
     /// Technical difficulty rating.
     /// Must be a non-negative decimal value (≥ 0).
-    #[validate(range(min = 0.0, message = "Technical rating must be non-negative"))]
-    pub technical: Option<f64>,
+    pub technical: Option<BigDecimal>,
 
     /// Timestamp when the score mania rating was created.
     pub created_at: Option<NaiveDateTime>,
 }
-

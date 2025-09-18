@@ -11,7 +11,7 @@ pub struct BansRow {
     /// Discord ID of the banned user.
     /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "Discord ID must be positive"))]
-    pub discord_id: i64,
+    pub discord_id: Option<i64>,
 
     /// Optional reason for the ban.
     pub reason: Option<String>,

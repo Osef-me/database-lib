@@ -15,4 +15,3 @@ impl BeatmapsetRow {
         find_by_osu_id(pool, osu_id).await
     }
 }
-

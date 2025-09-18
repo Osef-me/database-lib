@@ -5,7 +5,7 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ReplayRow>, Sql
     sqlx::query_as!(
         ReplayRow,
         r#"
-        SELECT id, replay_data, created_at
+        SELECT id, replay_hash, replay_available, replay_path, created_at
         FROM replay
         WHERE id = $1
         "#,
@@ -14,4 +14,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ReplayRow>, Sql
     .fetch_optional(pool)
     .await
 }
-

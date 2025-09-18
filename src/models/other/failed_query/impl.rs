@@ -11,4 +11,3 @@ impl FailedQueryRow {
         find_by_id(pool, id).await?.ok_or(SqlxError::RowNotFound)
     }
 }
-

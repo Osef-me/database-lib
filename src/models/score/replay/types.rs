@@ -1,19 +1,24 @@
 use chrono::NaiveDateTime;
 use validator::Validate;
 
+use crate::utils::HASH_REGEX;
+
 #[derive(Debug, Clone, sqlx::FromRow, Validate)]
 pub struct ReplayRow {
     /// Unique identifier for the replay record.
-    /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "ID must be positive"))]
     pub id: i32,
 
-    /// Replay data as binary content.
-    /// Must not be empty.
-    #[validate(length(min = 1, message = "Replay data cannot be empty"))]
-    pub replay_data: Vec<u8>,
+    #[validate(regex(path = *HASH_REGEX))]
+    pub replay_hash: String,
 
-    /// Timestamp when the replay was created.
+    /// Must be a boolean.
+    pub replay_available: bool,
+
+    /// Must be a string.
+    #[validate(length(min = 1, message = "Replay path cannot be empty"))]
+    pub replay_path: String,
+
+    /// Must be a timestamp.
     pub created_at: Option<NaiveDateTime>,
 }
-

@@ -1,5 +1,8 @@
+use bigdecimal::BigDecimal;
 use chrono::NaiveDateTime;
 use validator::Validate;
+
+use crate::utils::HASH_REGEX;
 
 #[derive(Debug, Clone, sqlx::FromRow, Validate)]
 pub struct RatesRow {
@@ -20,6 +23,7 @@ pub struct RatesRow {
         max = 128,
         message = "Osu hash must be between 1 and 128 characters"
     ))]
+    #[validate(regex(path = *HASH_REGEX))]
     pub osu_hash: String,
 
     /// Rate value in centi (e.g., 110 for 1.1x rate).
@@ -39,10 +43,8 @@ pub struct RatesRow {
 
     /// Beats per minute of the beatmap.
     /// Must be a positive decimal value.
-    #[validate(range(min = 0.01, message = "BPM must be positive"))]
-    pub bpm: f64,
+    pub bpm: BigDecimal,
 
     /// Timestamp when the rate was created.
     pub created_at: Option<NaiveDateTime>,
 }
-

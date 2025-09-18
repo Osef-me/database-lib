@@ -18,4 +18,3 @@ pub struct NewUsersRow {
     /// Timestamp when the new user record was created.
     pub created_at: Option<NaiveDateTime>,
 }
-

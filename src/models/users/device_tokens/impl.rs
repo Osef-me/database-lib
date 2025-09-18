@@ -4,7 +4,7 @@ use sqlx::{Error as SqlxError, PgPool};
 use uuid::Uuid;
 
 impl DeviceTokensRow {
-    pub async fn insert(self, pool: &PgPool) -> Result<Uuid, SqlxError> {
+    pub async fn insert(self, pool: &PgPool) -> Result<i32, SqlxError> {
         insert(pool, self).await
     }
 
@@ -12,4 +12,3 @@ impl DeviceTokensRow {
         find_by_token(pool, token).await
     }
 }
-

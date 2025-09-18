@@ -14,4 +14,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<RatesRow>, Sqlx
     .fetch_optional(pool)
     .await
 }
-

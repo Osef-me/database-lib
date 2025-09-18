@@ -15,7 +15,10 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<PendingBeatmapR
     .await
 }
 
-pub async fn find_by_hash(pool: &PgPool, osu_hash: &str) -> Result<Option<PendingBeatmapRow>, SqlxError> {
+pub async fn find_by_hash(
+    pool: &PgPool,
+    osu_hash: &str,
+) -> Result<Option<PendingBeatmapRow>, SqlxError> {
     sqlx::query_as!(
         PendingBeatmapRow,
         r#"

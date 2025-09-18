@@ -1,4 +1,4 @@
-use super::query::{find_by_id, find_by_hash, insert};
+use super::query::{find_by_hash, find_by_id, insert};
 use super::PendingBeatmapRow;
 use sqlx::{Error as SqlxError, PgPool};
 
@@ -15,4 +15,3 @@ impl PendingBeatmapRow {
         find_by_hash(pool, osu_hash).await
     }
 }
-

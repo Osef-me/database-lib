@@ -1,3 +1,4 @@
+use bigdecimal::BigDecimal;
 use chrono::NaiveDateTime;
 use validator::Validate;
 
@@ -14,12 +15,11 @@ pub struct BeatmapRatingRow {
 
     /// Rating value for the beatmap.
     /// Must be a positive decimal value.
-    #[validate(range(min = 0.01, message = "Rating must be positive"))]
-    pub rating: f64,
+    pub rating: BigDecimal,
 
     /// Type of rating system used.
     /// Must be one of: 'osu', 'etterna', 'quaver', 'malody', 'interlude'.
-    #[validate(custom = "validate_rating_type")]
+    #[validate(custom(function = "validate_rating_type"))]
     pub rating_type: String,
 
     /// Timestamp when the rating was created.

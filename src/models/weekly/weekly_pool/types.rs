@@ -8,21 +8,21 @@ pub struct WeeklyPoolRow {
     #[validate(range(min = 1, message = "ID must be positive"))]
     pub id: i32,
 
+    /// Reference to the beatmap this pool entry refers to.
+    /// Must be a positive integer (≥ 1).
+    #[validate(range(min = 1, message = "Beatmap ID must be positive"))]
+    pub beatmap_id: i32,
+
     /// Reference to the weekly challenge this pool belongs to.
     /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "Weekly ID must be positive"))]
     pub weekly_id: i32,
 
-    /// Name of the pool.
-    /// Must be between 1 and 255 characters.
-    #[validate(length(min = 1, max = 255, message = "Name must be between 1 and 255 characters"))]
-    pub name: String,
+    /// Number of votes for this beatmap in the pool.
+    /// Must be a non-negative integer (≥ 0).
+    #[validate(range(min = 0, message = "Vote count must be non-negative"))]
+    pub vote_count: i32,
 
-    /// Description of the pool.
-    /// Optional field, can be None.
-    pub description: Option<String>,
-
-    /// Timestamp when the weekly pool was created.
+    /// Timestamp when the weekly pool entry was created.
     pub created_at: Option<NaiveDateTime>,
 }
-

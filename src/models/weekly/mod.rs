@@ -5,8 +5,8 @@ pub mod weekly_pool;
 pub mod weekly_scores;
 
 // Re-exports for easy access
-pub use weekly::*;
-pub use weekly_maps::*;
-pub use weekly_participants::*;
-pub use weekly_pool::*;
-pub use weekly_scores::*;
+pub use weekly::WeeklyRow;
+pub use weekly_maps::WeeklyMapsRow;
+pub use weekly_participants::WeeklyParticipantsRow;
+pub use weekly_pool::WeeklyPoolRow;
+pub use weekly_scores::WeeklyScoresRow;

@@ -30,4 +30,3 @@ pub struct PendingBeatmapRow {
     /// Timestamp when the pending beatmap was created.
     pub created_at: Option<NaiveDateTime>,
 }
-

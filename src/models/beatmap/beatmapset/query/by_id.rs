@@ -15,7 +15,10 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<BeatmapsetRow>,
     .await
 }
 
-pub async fn find_by_osu_id(pool: &PgPool, osu_id: i32) -> Result<Option<BeatmapsetRow>, SqlxError> {
+pub async fn find_by_osu_id(
+    pool: &PgPool,
+    osu_id: i32,
+) -> Result<Option<BeatmapsetRow>, SqlxError> {
     sqlx::query_as!(
         BeatmapsetRow,
         r#"
@@ -28,4 +31,3 @@ pub async fn find_by_osu_id(pool: &PgPool, osu_id: i32) -> Result<Option<Beatmap
     .fetch_optional(pool)
     .await
 }
-

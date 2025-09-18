@@ -5,7 +5,7 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<WeeklyMapsRow>,
     sqlx::query_as!(
         WeeklyMapsRow,
         r#"
-        SELECT id, weekly_pool_id, beatmap_id, created_at
+        SELECT id, beatmap_id, weekly_id, max_rate, created_at
         FROM weekly_maps
         WHERE id = $1
         "#,
@@ -14,4 +14,3 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<WeeklyMapsRow>,
     .fetch_optional(pool)
     .await
 }
-

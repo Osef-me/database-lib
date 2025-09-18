@@ -2,7 +2,10 @@ use crate::models::users::device_tokens::types::DeviceTokensRow;
 use sqlx::{Error as SqlxError, PgPool};
 use uuid::Uuid;
 
-pub async fn find_by_token(pool: &PgPool, token: Uuid) -> Result<Option<DeviceTokensRow>, SqlxError> {
+pub async fn find_by_token(
+    pool: &PgPool,
+    token: Uuid,
+) -> Result<Option<DeviceTokensRow>, SqlxError> {
     sqlx::query_as!(
         DeviceTokensRow,
         r#"
@@ -15,4 +18,3 @@ pub async fn find_by_token(pool: &PgPool, token: Uuid) -> Result<Option<DeviceTo
     .fetch_optional(pool)
     .await
 }
-

@@ -1,3 +1,5 @@
+use super::validators::{validate_ar, validate_od_hp_cs, validate_status};
+use bigdecimal::BigDecimal;
 use chrono::NaiveDateTime;
 use serde_json::Value;
 use validator::Validate;
@@ -12,7 +14,7 @@ pub struct BeatmapRow {
     /// Osu beatmap ID from the official osu! API.
     /// Must be a positive integer (≥ 1).
     #[validate(range(min = 1, message = "Osu ID must be positive"))]
-    pub osu_id: i32,
+    pub osu_id: Option<i32>,
 
     /// Reference to the beatmapset this beatmap belongs to.
     /// Optional field, can be None.
@@ -53,23 +55,23 @@ pub struct BeatmapRow {
 
     /// Circle Size (CS) value.
     /// Must be between 0.0 and 10.0.
-    #[validate(range(min = 0.0, max = 10.0, message = "CS must be between 0.0 and 10.0"))]
-    pub cs: f64,
+    #[validate(custom(function = "validate_od_hp_cs"))]
+    pub cs: BigDecimal,
 
     /// Approach Rate (AR) value.
     /// Must be between 0.0 and 10.0.
-    #[validate(range(min = 0.0, max = 10.0, message = "AR must be between 0.0 and 10.0"))]
-    pub ar: f64,
+    #[validate(custom(function = "validate_ar"))]
+    pub ar: BigDecimal,
 
     /// Overall Difficulty (OD) value.
     /// Must be between 0.0 and 10.0.
-    #[validate(range(min = 0.0, max = 10.0, message = "OD must be between 0.0 and 10.0"))]
-    pub od: f64,
+    #[validate(custom(function = "validate_od_hp_cs"))]
+    pub od: BigDecimal,
 
     /// HP Drain (HP) value.
     /// Must be between 0.0 and 10.0.
-    #[validate(range(min = 0.0, max = 10.0, message = "HP must be between 0.0 and 10.0"))]
-    pub hp: f64,
+    #[validate(custom(function = "validate_od_hp_cs"))]
+    pub hp: BigDecimal,
 
     /// Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania).
     /// Must be between 0 and 3.
@@ -78,7 +80,7 @@ pub struct BeatmapRow {
 
     /// Status of the beatmap.
     /// Must be one of: 'pending', 'ranked', 'qualified', 'loved', 'graveyard'.
-    #[validate(custom = "validate_status")]
+    #[validate(custom(function = "validate_status"))]
     pub status: String,
 
     /// Timestamp when the beatmap was created.
@@ -86,11 +88,4 @@ pub struct BeatmapRow {
 
     /// Timestamp when the beatmap was last updated.
     pub updated_at: Option<NaiveDateTime>,
-}
-
-fn validate_status(status: &str) -> Result<(), validator::ValidationError> {
-    match status {
-        "pending" | "ranked" | "qualified" | "loved" | "graveyard" => Ok(()),
-        _ => Err(validator::ValidationError::new("invalid_status")),
-    }
 }
