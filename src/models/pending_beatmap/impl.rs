@@ -3,12 +3,8 @@ use super::PendingBeatmapRow;
 use sqlx::PgPool;
 
 impl PendingBeatmapRow {
-    pub async fn insert(
-        pool: &PgPool,
-        hash: &str,
-        osu_id: Option<i32>,
-    ) -> Result<i32, sqlx::Error> {
-        insert(pool, hash, osu_id).await
+    pub async fn insert(self, pool: &PgPool) -> Result<i32, sqlx::Error> {
+        insert(pool, self).await
     }
 
     pub async fn delete_by_id(pool: &PgPool, id: i32) -> Result<u64, sqlx::Error> {

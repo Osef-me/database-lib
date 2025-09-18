@@ -3,8 +3,8 @@ use super::FailedQueryRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 impl FailedQueryRow {
-    pub async fn insert(pool: &PgPool, hash: &str) -> Result<i32, SqlxError> {
-        insert(pool, hash).await
+    pub async fn insert(self, pool: &PgPool) -> Result<i32, SqlxError> {
+        insert(pool, self).await
     }
 
     pub async fn exists_by_hash(pool: &PgPool, hash: &str) -> Result<bool, SqlxError> {

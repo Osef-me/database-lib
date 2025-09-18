@@ -1,4 +1,4 @@
-use super::query::{exists_by_checksum, find_by_id, get_beatmapset_id, insert::insert};
+use super::query::{exists_by_checksum, find_by_beatmapset_id, find_by_id, insert::insert};
 use super::types::BeatmapRow;
 use sqlx::PgPool;
 
@@ -15,10 +15,10 @@ impl BeatmapRow {
         exists_by_checksum(pool, checksum).await
     }
 
-    pub async fn get_beatmapset_id(
+    pub async fn find_by_beatmapset_id(
         pool: &PgPool,
         beatmap_id: i32,
     ) -> Result<Option<i32>, sqlx::Error> {
-        get_beatmapset_id(pool, beatmap_id).await
+        find_by_beatmapset_id(pool, beatmap_id).await
     }
 }

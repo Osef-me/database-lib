@@ -7,7 +7,7 @@ use super::validators::{
     validate_od, validate_status,
 };
 
-#[derive(Clone, Debug, Validate)]
+#[derive(Clone, Debug, sqlx::FromRow, Validate)]
 pub struct BeatmapRow {
     #[validate(range(min = 1))]
     pub id: i32,

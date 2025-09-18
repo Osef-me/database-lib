@@ -1,18 +1,4 @@
-use sqlx::{Error as SqlxError, PgPool, Row};
+use crate::define_insert_returning_id;
+use crate::models::pending_beatmap::types::PendingBeatmapRow;
 
-pub async fn insert(pool: &PgPool, hash: &str, osu_id: Option<i32>) -> Result<i32, SqlxError> {
-    Ok(sqlx::query(
-        r#"
-        INSERT INTO pending_beatmap (hash, osu_id)
-        VALUES ($1, $2)
-        ON CONFLICT (hash) DO NOTHING
-        RETURNING id
-        "#,
-    )
-    .bind(hash)
-    .bind(osu_id)
-    .fetch_optional(pool)
-    .await?
-    .map(|r| r.get::<i32, _>("id"))
-    .unwrap_or(0))
-}
+define_insert_returning_id!(insert, "pending_beatmap", PendingBeatmapRow, hash, osu_id);
