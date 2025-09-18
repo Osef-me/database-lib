@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT * FROM beatmap WHERE id = $1\n        ",
+  "query": "\n        SELECT id, osu_id, beatmapset_id, difficulty, count_circles, count_sliders, count_spinners, max_combo, main_pattern, cs, ar, od, hp, mode, status, created_at, updated_at\n        FROM beatmap\n        WHERE osu_id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -25,91 +25,66 @@
       },
       {
         "ordinal": 4,
-        "name": "difficulty_rating",
-        "type_info": "Numeric"
-      },
-      {
-        "ordinal": 5,
         "name": "count_circles",
         "type_info": "Int4"
       },
       {
-        "ordinal": 6,
+        "ordinal": 5,
         "name": "count_sliders",
         "type_info": "Int4"
       },
       {
-        "ordinal": 7,
+        "ordinal": 6,
         "name": "count_spinners",
         "type_info": "Int4"
       },
       {
-        "ordinal": 8,
+        "ordinal": 7,
         "name": "max_combo",
         "type_info": "Int4"
       },
       {
+        "ordinal": 8,
+        "name": "main_pattern",
+        "type_info": "Jsonb"
+      },
+      {
         "ordinal": 9,
-        "name": "drain_time",
-        "type_info": "Int4"
-      },
-      {
-        "ordinal": 10,
-        "name": "total_time",
-        "type_info": "Int4"
-      },
-      {
-        "ordinal": 11,
-        "name": "bpm",
-        "type_info": "Numeric"
-      },
-      {
-        "ordinal": 12,
         "name": "cs",
         "type_info": "Numeric"
       },
       {
-        "ordinal": 13,
+        "ordinal": 10,
         "name": "ar",
         "type_info": "Numeric"
       },
       {
-        "ordinal": 14,
+        "ordinal": 11,
         "name": "od",
         "type_info": "Numeric"
       },
       {
-        "ordinal": 15,
+        "ordinal": 12,
         "name": "hp",
         "type_info": "Numeric"
       },
       {
-        "ordinal": 16,
+        "ordinal": 13,
         "name": "mode",
         "type_info": "Int4"
       },
       {
-        "ordinal": 17,
+        "ordinal": 14,
         "name": "status",
         "type_info": "Varchar"
       },
       {
-        "ordinal": 18,
-        "name": "file_md5",
-        "type_info": "Varchar"
-      },
-      {
-        "ordinal": 19,
-        "name": "file_path",
-        "type_info": "Varchar"
-      },
-      {
-        "ordinal": 20,
+        "ordinal": 15,
         "name": "created_at",
         "type_info": "Timestamp"
       },
       {
-        "ordinal": 21,
+        "ordinal": 16,
         "name": "updated_at",
         "type_info": "Timestamp"
       }
@@ -135,14 +110,9 @@
       false,
       false,
       false,
-      false,
-      false,
-      false,
-      false,
-      false,
       true,
       true
     ]
   },
-  "hash": "1ac057ca6c9d8606be406e3474eafccd1aed69af38d996b1ee4236ca98fa944e"
+  "hash": "4d505776a91ca5d58a8f6740bbf1ad78a77af32c30b271aa36745a8dc5ddf75a"
 }

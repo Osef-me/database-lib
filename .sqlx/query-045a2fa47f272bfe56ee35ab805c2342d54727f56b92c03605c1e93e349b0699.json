@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT id, skin, pause_count, started_at, ended_at, time_paused, score, accuracy, \n               max_combo, perfect, count_300, count_100, count_50, \n               count_miss, count_katu, count_geki, created_at\n        FROM score_metadata\n        WHERE id = $1\n        ",
+  "query": "\n        SELECT id, skin, pause_count, started_at, ended_at, time_paused, score, accuracy, max_combo, perfect, count_300, count_100, count_50, count_miss, count_geki, count_katu, created_at\n        FROM score_metadata\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -75,12 +75,12 @@
       },
       {
         "ordinal": 14,
-        "name": "count_katu",
+        "name": "count_geki",
         "type_info": "Int4"
       },
       {
         "ordinal": 15,
-        "name": "count_geki",
+        "name": "count_katu",
         "type_info": "Int4"
       },
       {
@@ -114,5 +114,5 @@
       true
     ]
   },
-  "hash": "707473c5a3a1656ac1dd81abd05a22d1f5d46d991b478c3b033402146fefc83e"
+  "hash": "045a2fa47f272bfe56ee35ab805c2342d54727f56b92c03605c1e93e349b0699"
 }

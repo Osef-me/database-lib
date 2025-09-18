@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT id, score_id, rating, rating_type, created_at\n        FROM score_rating \n        WHERE id = $1\n        ",
+  "query": "\n        SELECT id, beatmap_id, weekly_id, max_rate, created_at\n        FROM weekly_maps\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -10,18 +10,18 @@
       },
       {
         "ordinal": 1,
-        "name": "score_id",
+        "name": "beatmap_id",
         "type_info": "Int4"
       },
       {
         "ordinal": 2,
-        "name": "rating",
-        "type_info": "Numeric"
+        "name": "weekly_id",
+        "type_info": "Int4"
       },
       {
         "ordinal": 3,
-        "name": "rating_type",
-        "type_info": "Varchar"
+        "name": "max_rate",
+        "type_info": "Numeric"
       },
       {
         "ordinal": 4,
@@ -42,5 +42,5 @@
       true
     ]
   },
-  "hash": "04b72f5e388730984e1bc835471f561a02d3099d66beaee2bf115b3e9c174cb7"
+  "hash": "5793c558aca6813aaf825384c2b4d7a40a7518afe9d54ecca92bc1887a425641"
 }

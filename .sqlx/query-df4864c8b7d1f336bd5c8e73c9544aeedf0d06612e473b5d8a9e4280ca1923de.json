@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        INSERT INTO score_rating (score_id, rating, rating_type, created_at)\n        VALUES ($1, $2, $3, NOW())\n        RETURNING id, score_id, rating, rating_type, created_at\n        ",
+  "query": "\n        SELECT id, replay_hash, replay_available, replay_path, created_at\n        FROM replay\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -10,18 +10,18 @@
       },
       {
         "ordinal": 1,
-        "name": "score_id",
-        "type_info": "Int4"
+        "name": "replay_hash",
+        "type_info": "Bpchar"
       },
       {
         "ordinal": 2,
-        "name": "rating",
-        "type_info": "Numeric"
+        "name": "replay_available",
+        "type_info": "Bool"
       },
       {
         "ordinal": 3,
-        "name": "rating_type",
-        "type_info": "Varchar"
+        "name": "replay_path",
+        "type_info": "Text"
       },
       {
         "ordinal": 4,
@@ -31,9 +31,7 @@
     ],
     "parameters": {
       "Left": [
-        "Int4",
-        "Numeric",
-        "Varchar"
+        "Int4"
       ]
     },
     "nullable": [
@@ -44,5 +42,5 @@
       true
     ]
   },
-  "hash": "773d68c3aefdf4ce57050e9acbc9f056f2db5bd435b0468d2bd2c72eb1d10e64"
+  "hash": "df4864c8b7d1f336bd5c8e73c9544aeedf0d06612e473b5d8a9e4280ca1923de"
 }

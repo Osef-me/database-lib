@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "SELECT * FROM beatmapset WHERE osu_id = $1",
+  "query": "\n        SELECT id, osu_id, artist, artist_unicode, title, title_unicode, creator, source, tags, has_video, has_storyboard, is_explicit, is_featured, cover_url, preview_url, osu_file_url, created_at, updated_at\n        FROM beatmapset\n        WHERE osu_id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -120,5 +120,5 @@
       true
     ]
   },
-  "hash": "a5c2f5f58c28161df666d14059ff6f1b30d46c462e7a563c7f05873b39d6ff2e"
+  "hash": "3fc88aed64b92830a1461ade2b5d0a32c791471c8b334945f7857de6d56396be"
 }

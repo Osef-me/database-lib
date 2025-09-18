@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT id, score_id, rating, rating_type, created_at\n        FROM score_rating \n        WHERE score_id = $1\n        ORDER BY created_at DESC\n        ",
+  "query": "\n        SELECT id, rates_id, rating, rating_type, created_at\n        FROM beatmap_rating\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -10,7 +10,7 @@
       },
       {
         "ordinal": 1,
-        "name": "score_id",
+        "name": "rates_id",
         "type_info": "Int4"
       },
       {
@@ -36,11 +36,11 @@
     },
     "nullable": [
       false,
-      false,
+      true,
       false,
       false,
       true
     ]
   },
-  "hash": "35f2ebf73b08e65893400a4a8cb422ba9d7fc13d1b613cb224d0046bad449b56"
+  "hash": "ad8130178714657de07eba9d7585c0604718a1408ff76c150cc544626409e11e"
 }

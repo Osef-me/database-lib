@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT token, discord_id, device_name, hwid, created_at\n        FROM device_tokens\n        WHERE token = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "token",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "discord_id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "device_name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "hwid",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true,
+      true,
+      false
+    ]
+  },
+  "hash": "351f698c67e869ed4d6a14e4ecc0c6c7664ed247f2c05954b6954b14de8cf93a"
+}

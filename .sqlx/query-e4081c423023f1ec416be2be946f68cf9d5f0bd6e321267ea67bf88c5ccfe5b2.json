@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT * FROM beatmapset\n        WHERE artist ILIKE $1 OR artist_unicode ILIKE $1 OR title ILIKE $1 OR title_unicode ILIKE $1 OR creator ILIKE $1\n        ORDER BY created_at DESC\n        LIMIT $2 OFFSET $3\n        ",
+  "query": "\n        SELECT id, osu_id, artist, artist_unicode, title, title_unicode, creator, source, tags, has_video, has_storyboard, is_explicit, is_featured, cover_url, preview_url, osu_file_url, created_at, updated_at\n        FROM beatmapset\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -96,9 +96,7 @@
     ],
     "parameters": {
       "Left": [
-        "Text",
-        "Int8",
-        "Int8"
+        "Int4"
       ]
     },
     "nullable": [
@@ -122,5 +120,5 @@
       true
     ]
   },
-  "hash": "4239f00ec1694971de5e37d6d7a05a0134aaefddfb33e25d6488542ab31880f7"
+  "hash": "e4081c423023f1ec416be2be946f68cf9d5f0bd6e321267ea67bf88c5ccfe5b2"
 }

@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT id, hash, replay_available, replay_path, created_at\n        FROM replays\n        WHERE id = $1\n        ",
+  "query": "\n        SELECT id, user_id, weekly_id, score_id, op, created_at\n        FROM weekly_scores\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -10,21 +10,26 @@
       },
       {
         "ordinal": 1,
-        "name": "hash",
-        "type_info": "Bpchar"
+        "name": "user_id",
+        "type_info": "Int8"
       },
       {
         "ordinal": 2,
-        "name": "replay_available",
-        "type_info": "Bool"
+        "name": "weekly_id",
+        "type_info": "Int4"
       },
       {
         "ordinal": 3,
-        "name": "replay_path",
-        "type_info": "Text"
+        "name": "score_id",
+        "type_info": "Int4"
       },
       {
         "ordinal": 4,
+        "name": "op",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 5,
         "name": "created_at",
         "type_info": "Timestamp"
       }
@@ -39,8 +44,9 @@
       false,
       false,
       false,
+      false,
       true
     ]
   },
-  "hash": "5cf879703f36cf898b2c5c01a2ac921064225d8c8cbcc4d5c11f25cf342b0df8"
+  "hash": "aff008a31c4fc43b26bd531de1d7ddec22e62915a71ade179eb7fcdfce31d904"
 }

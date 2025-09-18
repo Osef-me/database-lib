@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "SELECT * FROM beatmapset ORDER BY created_at DESC LIMIT $1 OFFSET $2",
+  "query": "\n        SELECT id, osu_id, beatmapset_id, difficulty, count_circles, count_sliders, count_spinners, max_combo, main_pattern, cs, ar, od, hp, mode, status, created_at, updated_at\n        FROM beatmap\n        WHERE id = $1\n        ",
   "describe": {
     "columns": [
       {
@@ -15,111 +15,104 @@
       },
       {
         "ordinal": 2,
-        "name": "artist",
-        "type_info": "Varchar"
+        "name": "beatmapset_id",
+        "type_info": "Int4"
       },
       {
         "ordinal": 3,
-        "name": "artist_unicode",
+        "name": "difficulty",
         "type_info": "Varchar"
       },
       {
         "ordinal": 4,
-        "name": "title",
-        "type_info": "Varchar"
+        "name": "count_circles",
+        "type_info": "Int4"
       },
       {
         "ordinal": 5,
-        "name": "title_unicode",
-        "type_info": "Varchar"
+        "name": "count_sliders",
+        "type_info": "Int4"
       },
       {
         "ordinal": 6,
-        "name": "creator",
-        "type_info": "Varchar"
+        "name": "count_spinners",
+        "type_info": "Int4"
       },
       {
         "ordinal": 7,
-        "name": "source",
-        "type_info": "Varchar"
+        "name": "max_combo",
+        "type_info": "Int4"
       },
       {
         "ordinal": 8,
-        "name": "tags",
-        "type_info": "TextArray"
+        "name": "main_pattern",
+        "type_info": "Jsonb"
       },
       {
         "ordinal": 9,
-        "name": "has_video",
-        "type_info": "Bool"
+        "name": "cs",
+        "type_info": "Numeric"
       },
       {
         "ordinal": 10,
-        "name": "has_storyboard",
-        "type_info": "Bool"
+        "name": "ar",
+        "type_info": "Numeric"
       },
       {
         "ordinal": 11,
-        "name": "is_explicit",
-        "type_info": "Bool"
+        "name": "od",
+        "type_info": "Numeric"
       },
       {
         "ordinal": 12,
-        "name": "is_featured",
-        "type_info": "Bool"
+        "name": "hp",
+        "type_info": "Numeric"
       },
       {
         "ordinal": 13,
-        "name": "cover_url",
-        "type_info": "Varchar"
+        "name": "mode",
+        "type_info": "Int4"
       },
       {
         "ordinal": 14,
-        "name": "preview_url",
+        "name": "status",
         "type_info": "Varchar"
       },
       {
         "ordinal": 15,
-        "name": "osu_file_url",
-        "type_info": "Varchar"
-      },
-      {
-        "ordinal": 16,
         "name": "created_at",
         "type_info": "Timestamp"
       },
       {
-        "ordinal": 17,
+        "ordinal": 16,
         "name": "updated_at",
         "type_info": "Timestamp"
       }
     ],
     "parameters": {
       "Left": [
-        "Int8",
-        "Int8"
+        "Int4"
       ]
     },
     "nullable": [
       false,
       true,
-      false,
-      true,
-      false,
-      true,
-      false,
-      true,
       true,
       false,
       false,
       false,
       false,
-      true,
-      true,
-      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
       true,
       true
     ]
   },
-  "hash": "b3f0d3b9ddf92777600f8dfedbf0a85a273beb8dcbb6a78e4e1d8573ecae162b"
+  "hash": "2028b966626553661fb693feee3748336188e8f25b1662d07368674f884b0a8c"
 }
