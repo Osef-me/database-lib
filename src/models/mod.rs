@@ -1,4 +1,3 @@
-
 pub mod beatmaps;
 pub mod other;
 pub mod rating;
