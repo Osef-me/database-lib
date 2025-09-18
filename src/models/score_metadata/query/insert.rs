@@ -1,7 +1,6 @@
 use crate::define_insert_returning_id;
 use crate::models::score_metadata::types::ScoreMetadataRow;
 
-
 define_insert_returning_id!(
     insert,
     "score_metadata",
