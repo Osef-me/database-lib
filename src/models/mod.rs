@@ -1,9 +1,14 @@
 pub mod beatmap;
-pub mod beatmapset;
-pub mod failed_query;
-pub mod msd;
-pub mod pending_beatmap;
-pub mod replay;
+pub mod other;
+pub mod rating;
 pub mod score;
-pub mod score_metadata;
-pub mod score_rating;
+pub mod users;
+pub mod weekly;
+
+// Re-exports for easy access
+pub use beatmap::*;
+pub use other::*;
+pub use rating::*;
+pub use score::*;
+pub use users::*;
+pub use weekly::*;

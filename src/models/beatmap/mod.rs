@@ -1,10 +1,4 @@
-pub mod r#impl;
-pub mod query;
-pub mod types;
-pub(super) mod validators;
-
-#[cfg(test)]
-mod tests;
-
-pub use query::*;
-pub use types::BeatmapRow;
+pub mod beatmap;
+pub mod beatmapset;
+pub mod pending_beatmap;
+pub mod rates;
