@@ -1,4 +1,4 @@
-use crate::models::score::replay::types::ReplayRow;
+use crate::models::scores::replay::types::ReplayRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ReplayRow>, SqlxError> {

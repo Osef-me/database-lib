@@ -1,5 +1,5 @@
 use crate::define_insert_returning_id;
-use crate::models::score::score_metadata::types::ScoreMetadataRow;
+use crate::models::scores::score_metadata::types::ScoreMetadataRow;
 // no extra imports needed
 
 define_insert_returning_id!(

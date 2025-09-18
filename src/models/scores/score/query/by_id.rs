@@ -1,4 +1,4 @@
-use crate::models::score::score::types::ScoreRow;
+use crate::models::scores::score::types::ScoreRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ScoreRow>, SqlxError> {

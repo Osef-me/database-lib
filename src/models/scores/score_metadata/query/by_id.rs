@@ -1,4 +1,4 @@
-use crate::models::score::score_metadata::types::ScoreMetadataRow;
+use crate::models::scores::score_metadata::types::ScoreMetadataRow;
 use sqlx::{Error as SqlxError, PgPool};
 
 pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<ScoreMetadataRow>, SqlxError> {
