@@ -1,0 +1,64 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, beatmap_id, osu_hash, centirate, drain_time, total_time, bpm, created_at\n        FROM rates\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "beatmap_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "osu_hash",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "centirate",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 4,
+        "name": "drain_time",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "total_time",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 6,
+        "name": "bpm",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 7,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "b3cbc14f62420c6f903015f20703e71753ecd95e21b2ef47196e8e53bc25fc96"
+}

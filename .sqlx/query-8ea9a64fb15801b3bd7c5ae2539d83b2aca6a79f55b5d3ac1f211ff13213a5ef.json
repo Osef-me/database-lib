@@ -1,0 +1,76 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, rating_id, stream, jumpstream, handstream, stamina, jackspeed, chordjack, technical, created_at\n        FROM score_mania_rating\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "rating_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "stream",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 3,
+        "name": "jumpstream",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 4,
+        "name": "handstream",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 5,
+        "name": "stamina",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 6,
+        "name": "jackspeed",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 7,
+        "name": "chordjack",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 8,
+        "name": "technical",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 9,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "8ea9a64fb15801b3bd7c5ae2539d83b2aca6a79f55b5d3ac1f211ff13213a5ef"
+}

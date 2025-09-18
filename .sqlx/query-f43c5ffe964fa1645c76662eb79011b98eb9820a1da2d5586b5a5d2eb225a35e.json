@@ -1,0 +1,76 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, user_id, rates_id, score_metadata_id, replay_id, hwid, mods, rank, status, created_at\n        FROM score\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "user_id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "rates_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 3,
+        "name": "score_metadata_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 4,
+        "name": "replay_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "hwid",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "mods",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 7,
+        "name": "rank",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 8,
+        "name": "status",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 9,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "f43c5ffe964fa1645c76662eb79011b98eb9820a1da2d5586b5a5d2eb225a35e"
+}

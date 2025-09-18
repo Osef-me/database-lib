@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, user_id, weekly_id, score_id, op, created_at\n        FROM weekly_scores\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "user_id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "weekly_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 3,
+        "name": "score_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 4,
+        "name": "op",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "aff008a31c4fc43b26bd531de1d7ddec22e62915a71ade179eb7fcdfce31d904"
+}

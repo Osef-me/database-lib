@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, rates_id, rating, rating_type, created_at\n        FROM beatmap_rating\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "rates_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "rating",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 3,
+        "name": "rating_type",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "ad8130178714657de07eba9d7585c0604718a1408ff76c150cc544626409e11e"
+}
