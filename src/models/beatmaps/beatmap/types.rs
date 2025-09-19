@@ -1,4 +1,5 @@
-use super::validators::{validate_ar, validate_od_hp_cs, validate_status};
+use super::validators::{validate_ar, validate_od_hp_cs};
+use crate::utils::BEATMAP_STATUS_REGEX;
 use bigdecimal::BigDecimal;
 use chrono::NaiveDateTime;
 use serde_json::Value;
@@ -80,7 +81,7 @@ pub struct BeatmapRow {
 
     /// Status of the beatmap.
     /// Must be one of: 'pending', 'ranked', 'qualified', 'loved', 'graveyard'.
-    #[validate(custom(function = "validate_status"))]
+    #[validate(regex(path = *BEATMAP_STATUS_REGEX))]
     pub status: String,
 
     /// Timestamp when the beatmap was created.
