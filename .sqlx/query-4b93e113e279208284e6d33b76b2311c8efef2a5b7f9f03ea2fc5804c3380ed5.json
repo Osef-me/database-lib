@@ -1,0 +1,38 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, osu_hash, osu_id, created_at\n        FROM pending_beatmap\n        ORDER BY created_at ASC, id ASC\n        LIMIT 1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "osu_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "osu_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 3,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "4b93e113e279208284e6d33b76b2311c8efef2a5b7f9f03ea2fc5804c3380ed5"
+}
