@@ -117,9 +117,7 @@ The crate depends on `tracing` and `tracing-subscriber`, but does not initialize
 
 ```rust 
 fn main(){
-    tracing_subscriber::fmt()
-        .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
-        .init();
+    tracing_subscriber::fmt().with_env_filter(tracing_subscriber::EnvFilter::from_default_env()).init();
 }
 ```
 

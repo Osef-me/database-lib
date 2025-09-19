@@ -1,12 +1,7 @@
 use bigdecimal::{BigDecimal, FromPrimitive};
 use validator::ValidationError;
 
-pub fn validate_status(status: &str) -> Result<(), ValidationError> {
-    match status {
-        "pending" | "ranked" | "qualified" | "loved" | "graveyard" => Ok(()),
-        _ => Err(validator::ValidationError::new("invalid_status")),
-    }
-}
+
 
 pub fn validate_od_hp_cs(value: &BigDecimal) -> Result<(), ValidationError> {
     if value < &BigDecimal::from_f64(0.0).unwrap() || value > &BigDecimal::from_f64(10.0).unwrap() {
