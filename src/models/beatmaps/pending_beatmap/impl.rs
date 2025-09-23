@@ -1,4 +1,6 @@
-use super::query::{delete_by_id, find_by_hash, find_by_id, insert, last_pending_beatmap};
+use super::query::{
+    bulk_insert, delete_by_id, find_by_hash, find_by_id, insert, last_pending_beatmap,
+};
 use super::PendingBeatmapRow;
 use sqlx::{Error as SqlxError, PgPool};
 
@@ -21,5 +23,9 @@ impl PendingBeatmapRow {
 
     pub async fn delete_by_id(pool: &PgPool, id: i32) -> Result<bool, SqlxError> {
         delete_by_id(pool, id).await
+    }
+
+    pub async fn bulk_insert(pool: &PgPool, rows: &[PendingBeatmapRow]) -> Result<i64, SqlxError> {
+        bulk_insert(pool, rows).await
     }
 }

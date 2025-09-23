@@ -30,3 +30,9 @@ pub struct PendingBeatmapRow {
     /// Timestamp when the pending beatmap was created.
     pub created_at: Option<NaiveDateTime>,
 }
+
+#[derive(Debug, Clone)]
+pub struct PendingBeatmapNew {
+    pub osu_hash: String,
+    pub osu_id: Option<i32>,
+}
