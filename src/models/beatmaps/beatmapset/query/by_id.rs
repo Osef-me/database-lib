@@ -5,7 +5,7 @@ pub async fn find_by_id(pool: &PgPool, id: i32) -> Result<Option<BeatmapsetRow>,
     sqlx::query_as!(
         BeatmapsetRow,
         r#"
-        SELECT id, osu_id, artist, artist_unicode, title, title_unicode, creator, source, tags, has_video, has_storyboard, is_explicit, is_featured, cover_url, preview_url, osu_file_url, created_at, updated_at
+        SELECT id, osu_id, artist, artist_unicode, title, title_unicode, creator, source, tags, has_video, has_storyboard, is_explicit, is_featured, cover_url, preview_url, osu_file_url, created_at, updated_at, osu_status_changed_at
         FROM beatmapset
         WHERE id = $1
         "#,
@@ -22,7 +22,7 @@ pub async fn find_by_osu_id(
     sqlx::query_as!(
         BeatmapsetRow,
         r#"
-        SELECT id, osu_id, artist, artist_unicode, title, title_unicode, creator, source, tags, has_video, has_storyboard, is_explicit, is_featured, cover_url, preview_url, osu_file_url, created_at, updated_at
+        SELECT id, osu_id, artist, artist_unicode, title, title_unicode, creator, source, tags, has_video, has_storyboard, is_explicit, is_featured, cover_url, preview_url, osu_file_url, created_at, updated_at, osu_status_changed_at    
         FROM beatmapset
         WHERE osu_id = $1
         "#,

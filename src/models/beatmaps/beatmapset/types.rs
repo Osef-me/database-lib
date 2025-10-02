@@ -85,4 +85,7 @@ pub struct BeatmapsetRow {
 
     /// Timestamp when the beatmapset was last updated.
     pub updated_at: Option<NaiveDateTime>,
+
+    /// Timestamp when the beatmapset status was last changed.
+    pub osu_status_changed_at: Option<NaiveDateTime>,
 }
